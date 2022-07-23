@@ -61,28 +61,22 @@ const loginUser = asyncHandler(async (req, res) => {
             email: user.email,
             token: generateToken(user._id)
         })
-    }else{
+    } else {
         res.status(400)
         throw new Error('Invalid credentials')
     }
 })
 
-// Register new user
+// Get user data
 // GET /api/users/me
 // Private access
 const getMe = asyncHandler(async (req, res) => {
-    const {_id, name, email} = await User.findById(req.user.id)
-
-    res.status(200).json({
-        id: _id,
-        name,
-        email
-    })
+    res.status(200).json(req.user)
 })
 
 //Generate JWT
 const generateToken = (id) => {
-    return jwt.sign({id}, process.env.JWT_SECRET, {
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
         expiresIn: '30d',
     })
 }
