@@ -5,6 +5,8 @@ import GoalForm from "../components/GoalForm"
 import GoalItem from "../components/GoalItem"
 import Spinner from '../components/Spinner'
 import { getGoals, reset } from "../features/goals/goalSlice"
+import words_array from "../features/words/words"
+import WordItem from "../components/WordItem"
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -33,7 +35,7 @@ function Dashboard() {
     <>
       <section className="heading">
         <h1>Welcome {user && user.name}</h1>
-        <p>Goals Dashboard</p>
+        <p>爱の单词表</p>
       </section>
       <GoalForm />
       <section className="content">
@@ -41,7 +43,15 @@ function Dashboard() {
           {goals.map((goal) => (
             <GoalItem key={goal.id} goal = {goal} />
           ))}
-        </div>) : (<h3>You have not set any goals</h3>)}
+        </div>) : (<h3>You have not set any custom words</h3>)}
+      </section>
+      <section className="content">
+        <div className="goals">
+          {words_array.map((word) => (
+            <WordItem English_word = {JSON.parse(JSON.stringify(word)).English}
+            Chinese_word = {JSON.parse(JSON.stringify(word)).Chinese}/>
+          ))}
+        </div>
       </section>
     </>
   )
