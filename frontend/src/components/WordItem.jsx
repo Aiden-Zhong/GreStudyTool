@@ -22,8 +22,9 @@ const WordItem = ({ English_word, Chinese_word }) => {
           }}
           onChange={(e) => setText(e.target.value)} 
           onKeyDown={display}/>
-        <button className="btn" onClick={display}>Submit and view definition</button>
-        {displayTranslate ? <h2>{Chinese_word}</h2> : null}
+        <button className="btn" onClick={display}>View definition</button>
+        {displayTranslate ? <><h2>{Chinese_word}</h2> 
+        <button className="btn">Add to note</button></>: null}
       </div>
     </div>
   )
