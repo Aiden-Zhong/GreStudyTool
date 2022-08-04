@@ -4,9 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import GoalForm from "../components/GoalForm"
 import GoalItem from "../components/GoalItem"
 import Spinner from '../components/Spinner'
-import { getGoals, reset } from "../features/goals/goalSlice"
-import words_array from "../features/words/words"
-import WordItem from "../components/WordItem"
+import { getGoals } from "../features/goals/goalSlice"
+import Pagination from "../components/Pagination"
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -31,6 +30,7 @@ function Dashboard() {
     return <Spinner />
   }
 
+
   return (
     <>
       <section className="heading">
@@ -41,16 +41,17 @@ function Dashboard() {
       <section className="content">
         {goals.length > 0 ? (<div className="goals">
           {goals.map((goal) => (
-            <GoalItem key={goal.id} goal = {goal} />
+            <GoalItem key={goal.id} goal={goal} />
           ))}
         </div>) : (<h3>You have not set any custom words</h3>)}
       </section>
       <section className="content">
-        <div className="goals">
-          {words_array.map((word) => (
-            <WordItem English_word = {JSON.parse(JSON.stringify(word)).English}
-            Chinese_word = {JSON.parse(JSON.stringify(word)).Chinese}/>
-          ))}
+        <div>
+          {/* {words_array.map((word) => (
+            <WordItem English_word={JSON.parse(JSON.stringify(word)).English}
+              Chinese_word={JSON.parse(JSON.stringify(word)).Chinese} />
+          ))} */}
+          <Pagination itemsPerPage={300} />
         </div>
       </section>
     </>

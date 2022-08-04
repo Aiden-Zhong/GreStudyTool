@@ -30,7 +30,7 @@ function Header() {
       <ul>
         {user ? (<>
           <li>
-            <Link to='/notebook'>
+            <Link to='/notes'>
               <FaBook /> Notebook
             </Link>
           </li>
