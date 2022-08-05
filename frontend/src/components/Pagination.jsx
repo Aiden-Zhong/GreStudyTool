@@ -33,7 +33,7 @@ function Pagination({ itemsPerPage }) {
         <>
             <div className="goals">
             {currentItems.map((word) => (
-                <WordItem English_word={JSON.parse(JSON.stringify(word)).English}
+                <WordItem key={JSON.parse(JSON.stringify(word)).English} English_word={JSON.parse(JSON.stringify(word)).English}
                     Chinese_word={JSON.parse(JSON.stringify(word)).Chinese} />
             ))}
             </div>

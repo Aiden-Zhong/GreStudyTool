@@ -2,11 +2,19 @@ import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import GoalForm from "../components/GoalForm"
-import GoalItem from "../components/GoalItem"
 import Spinner from '../components/Spinner'
 import Pagination from "../components/Pagination"
 import { getNotes } from "../features/words/noteSlice"
 import WordItem from "../components/WordItem"
+import background from '../img/yxn2.jpg'
+
+
+const divStyle = {
+  width: '100%',
+  height: '1300px',
+  backgroundImage: `url(${background})`,
+  backgroundSize: 'cover'
+};
 
 function Notes() {
     const navigate = useNavigate()
@@ -31,13 +39,8 @@ function Notes() {
         return <Spinner />
     }
 
-    const logID = (note) =>{
-        console.log(note.id)
-    }
-
-
     return (
-        <>
+        <div style={divStyle}>
             <section className="heading">
                 <h1>Welcome {user && user.name}</h1>
                 <p>爱の单词表笔记本</p>
@@ -46,11 +49,11 @@ function Notes() {
             <section className="content">
                 {notes.length > 0 ? (<div className="goals">
                     {notes.map((note) => (
-                        <WordItem key={note.id} id={note._id} English_word={note.EN_text} Chinese_word={note.CN_text}/>
+                        <WordItem key={note._id} id={note._id} English_word={note.EN_text} Chinese_word={note.CN_text}/>
                     ))}
                 </div>) : (<h3>You have not set any custom words</h3>)}
             </section>
-        </>
+        </div>
     )
 }
 

@@ -7,6 +7,8 @@ import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Notes from './pages/Notes'
+import background from './img/yxn.jpg'
+
 
 function App() {
   return (

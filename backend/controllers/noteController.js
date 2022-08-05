@@ -1,7 +1,6 @@
 const asyncHandler = require('express-async-handler')
 
 const Note = require('../models/noteModel')
-const User = require('../models/userModel')
 
 //Get notes
 //@route Get /api/notes
@@ -19,6 +18,14 @@ const setNote = asyncHandler(async (req, res) => {
     if(!req.body.EN_text || !req.body.CN_text) {
         res.status(400)
         throw new Error('No word text provided')
+    }
+
+    //Check if note already exist
+    const wordExists = await Note.findOne({EN_text: req.body.EN_text})
+
+    if (wordExists) {
+        res.status(400)
+        throw new Error('Word already in notes')
     }
 
     const note = await Note.create({

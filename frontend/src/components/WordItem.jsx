@@ -1,6 +1,8 @@
+import e from "cors"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { deleteNote } from "../features/words/noteSlice"
+import { createNote } from "../features/words/noteSlice"
 
 const WordItem = ({id, English_word, Chinese_word }) => {
   const [text, setText] = useState('')
@@ -20,6 +22,11 @@ const WordItem = ({id, English_word, Chinese_word }) => {
     }
   }
 
+  const addToNote = (EN_text, CN_text) => {
+    dispatch(createNote({EN_text, CN_text}))
+    console.log(`clicked and passed in ${EN_text} and ${CN_text}`)
+  }
+
   return (
     <div className="goal">
       <h2>{English_word}</h2>
@@ -34,7 +41,7 @@ const WordItem = ({id, English_word, Chinese_word }) => {
           onKeyPress={handleKeyPress} />
         <button className="btn" onClick={display}>View definition</button>
         {displayTranslate ? <><h2>{Chinese_word}</h2>
-          <button className="btn">Add to note</button></> : null}
+          <button className="btn" onClick={() => addToNote(English_word, Chinese_word)}>Add to note</button></> : null}
       </div>
     </div>
   )
