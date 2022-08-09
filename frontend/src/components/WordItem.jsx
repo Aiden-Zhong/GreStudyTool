@@ -1,4 +1,3 @@
-import e from "cors"
 import { useState, useEffect, useRef } from "react"
 import { useDispatch } from "react-redux"
 import { deleteNote } from "../features/words/noteSlice"
