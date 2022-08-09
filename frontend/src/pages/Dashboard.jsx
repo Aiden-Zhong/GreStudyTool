@@ -6,18 +6,6 @@ import GoalItem from "../components/GoalItem"
 import Spinner from '../components/Spinner'
 import { getGoals } from "../features/goals/goalSlice"
 import Pagination from "../components/Pagination"
-import background from '../img/gray-bgim.jpg'
-
-
-const divStyle = {
-  width: '100%',
-  height: '100%',
-  backgroundImage: `url(${background})`,
-  backgroundSize: 'cover',
-  backgroundAttachment: 'fixed',
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat'
-};
 
 
 function Dashboard() {
@@ -45,7 +33,7 @@ function Dashboard() {
 
 
   return (
-    <div style={divStyle}>
+    <div>
       <section className="heading">
         <h1>Welcome {user && user.name}</h1>
         <p>爱の单词表</p>
@@ -57,6 +45,7 @@ function Dashboard() {
             <GoalItem key={goal.id} goal={goal} />
           ))}
         </div>) : (<h3>You have not set any custom words</h3>)}
+        <h3>Scroll to see the words</h3>
       </section>
       <section className="content">
         <div>

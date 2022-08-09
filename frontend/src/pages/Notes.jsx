@@ -6,15 +6,6 @@ import Spinner from '../components/Spinner'
 import Pagination from "../components/Pagination"
 import { getNotes } from "../features/words/noteSlice"
 import WordItem from "../components/WordItem"
-import background from '../img/yxn2.jpg'
-
-
-const divStyle = {
-  width: '100%',
-  height: '1300px',
-  backgroundImage: `url(${background})`,
-  backgroundSize: 'cover'
-};
 
 function Notes() {
     const navigate = useNavigate()
@@ -40,7 +31,7 @@ function Notes() {
     }
 
     return (
-        <div style={divStyle}>
+        <div>
             <section className="heading">
                 <h1>Welcome {user && user.name}</h1>
                 <p>爱の单词表笔记本</p>

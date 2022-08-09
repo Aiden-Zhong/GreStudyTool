@@ -3,6 +3,24 @@ import words_array from "../features/words/words"
 import WordItem from "./WordItem"
 import ReactPaginate from 'react-paginate'
 
+function shuffle(array) {
+    let currentIndex = array.length, randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+}
+
 
 function Pagination({ itemsPerPage }) {
     // We start with an empty list of items.
@@ -29,13 +47,15 @@ function Pagination({ itemsPerPage }) {
         setItemOffset(newOffset);
     };
 
+    shuffle(currentItems)
+
     return (
         <>
             <div className="goals">
-            {currentItems.map((word) => (
-                <WordItem key={JSON.parse(JSON.stringify(word)).English} English_word={JSON.parse(JSON.stringify(word)).English}
-                    Chinese_word={JSON.parse(JSON.stringify(word)).Chinese} />
-            ))}
+                {currentItems.map((word) => (
+                    <WordItem key={JSON.parse(JSON.stringify(word)).English} English_word={JSON.parse(JSON.stringify(word)).English}
+                        Chinese_word={JSON.parse(JSON.stringify(word)).Chinese} />
+                ))}
             </div>
             <ReactPaginate
                 breakLabel="..."
