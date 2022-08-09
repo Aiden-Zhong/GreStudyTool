@@ -35,7 +35,7 @@ const WordItem = ({ id, English_word, Chinese_word }) => {
 
     if (!ref.current) return
 
-    const triggerBottom = window.innerHeight / 5 * 4
+    const triggerBottom = window.innerHeight / 5 * 4.5
     const goalTop = ref.current.getBoundingClientRect().top
     if (goalTop < triggerBottom) {
       setShow(true)

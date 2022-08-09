@@ -1,9 +1,8 @@
 import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import GoalForm from "../components/GoalForm"
+import NoteForm from "../components/NoteForm"
 import Spinner from '../components/Spinner'
-import Pagination from "../components/Pagination"
 import { getNotes } from "../features/words/noteSlice"
 import WordItem from "../components/WordItem"
 
@@ -36,7 +35,7 @@ function Notes() {
                 <h1>Welcome {user && user.name}</h1>
                 <p>爱の单词表笔记本</p>
             </section>
-            <GoalForm />
+            <NoteForm />
             <section className="content">
                 {notes.length > 0 ? (<div className="goals">
                     {notes.map((note) => (

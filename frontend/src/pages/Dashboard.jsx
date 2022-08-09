@@ -44,8 +44,8 @@ function Dashboard() {
           {goals.map((goal) => (
             <GoalItem key={goal.id} goal={goal} />
           ))}
-        </div>) : (<h3>You have not set any custom words</h3>)}
-        <h3>Scroll to see the words</h3>
+        </div>) : (<h3>You have not set any goals</h3>)}
+        <h1>Scroll to see the words</h1>
       </section>
       <section className="content">
         <div>

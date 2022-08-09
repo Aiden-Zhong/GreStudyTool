@@ -21,6 +21,13 @@ function shuffle(array) {
     return array;
 }
 
+const goToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+};
+
 
 function Pagination({ itemsPerPage }) {
     // We start with an empty list of items.
@@ -45,6 +52,7 @@ function Pagination({ itemsPerPage }) {
             `User requested page number ${event.selected}, which is offset ${newOffset}`
         );
         setItemOffset(newOffset);
+        goToTop();
     };
 
     shuffle(currentItems)

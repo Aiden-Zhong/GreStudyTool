@@ -17,7 +17,7 @@ function GoalForm() {
     <section className="form">
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="text">Words</label>
+          <label htmlFor="text">Goals</label>
           <input type="text" name='text' id='text' value={text}
             onFocus={(event) => {
               event.target.setAttribute('autocomplete', 'off');
@@ -25,7 +25,7 @@ function GoalForm() {
             onChange={(e) => setText(e.target.value)} />
         </div>
         <div className="form-group">
-          <button className="btn btn-block" type='submit'>Add Words</button>
+          <button className="btn btn-block" type='submit'>Add Goals</button>
         </div>
       </form>
     </section>
