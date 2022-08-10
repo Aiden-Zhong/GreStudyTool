@@ -36,7 +36,7 @@ function Dashboard() {
     <div>
       <section className="heading">
         <h1>Welcome {user && user.name}</h1>
-        <p>爱の单词表</p>
+        <p>{user.name === "姚溪楠" ? "爱の单词表" : "给西兰花做的单词表"}</p>
       </section>
       <GoalForm />
       <section className="content">
