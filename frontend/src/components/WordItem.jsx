@@ -1,4 +1,3 @@
-import e from "express"
 import { useState, useEffect, useRef } from "react"
 import { useDispatch } from "react-redux"
 import { deleteNote } from "../features/words/noteSlice"
@@ -26,7 +25,6 @@ const WordItem = ({ id, English_word, Chinese_word }) => {
   }
 
   const addToNote = (EN_text, CN_text) => {
-    e.preventDefault()
     dispatch(createNote({ EN_text, CN_text }))
     setInNote(true)
   }
