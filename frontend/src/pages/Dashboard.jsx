@@ -36,15 +36,10 @@ function Dashboard() {
     <div>
       <section className="heading">
         <h1>Welcome {user && user.name}</h1>
-        <p>{user && user.name === "姚溪楠" ? "爱の单词表" : "给西兰花做的单词表"}</p>
+        <h1>Happy Learning</h1>
+        <p>{user && user.name === "姚溪楠" ? "爱の单词表" : "Created for Nancy Yao by Yingjie Zhong"}</p>
       </section>
-      <GoalForm />
       <section className="content">
-        {goals.length > 0 ? (<div className="goals">
-          {goals.map((goal) => (
-            <GoalItem key={goal.id} goal={goal} />
-          ))}
-        </div>) : (<h3>You have not set any goals</h3>)}
         <h1>Scroll to see the words</h1>
       </section>
       <section className="content">
