@@ -22,7 +22,6 @@ function Header() {
           </button>
         </Link>
         <div class="dropdown-content">
-          <button className='btn'>100</button>
         </div>
       </div>
       <ul>
