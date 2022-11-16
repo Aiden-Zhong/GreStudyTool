@@ -26,7 +26,7 @@ function NoteForm() {
                         }}
                         onChange={(e) => setEN_text(e.target.value)} />
 
-                    <label htmlFor="text">中文</label>
+                    <label htmlFor="text">中文(Chinese)</label>
                     <input type="text" name='text' id='text' value={CN_text}
                         onFocus={(event) => {
                             event.target.setAttribute('autocomplete', 'off');

@@ -1,8 +1,6 @@
 import { useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import GoalForm from "../components/GoalForm"
-import GoalItem from "../components/GoalItem"
 import Spinner from '../components/Spinner'
 import { getGoals } from "../features/goals/goalSlice"
 import Pagination from "../components/Pagination"
@@ -13,7 +11,7 @@ function Dashboard() {
   const dispatch = useDispatch()
 
   const { user } = useSelector((state) => state.auth)
-  const { goals, isLoading, isError, message } = useSelector((state) => state.goals)
+  const { isLoading, isError, message } = useSelector((state) => state.goals)
 
   useEffect(() => {
     if (isError) {
